@@ -34,7 +34,7 @@ public class MarkdownView extends WebView {
     MarkdownLinkCallback linkCallback;
 
     public interface MarkdownLinkCallback {
-        void linkClicked();
+        void linkClicked(String url);
     }
 
     public MarkdownView(Context context) {
@@ -70,7 +70,7 @@ public class MarkdownView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (isOpenUrlInBrowser()) {
 
-                    linkCallback.linkClicked();
+                    linkCallback.linkClicked(url);
 
                     //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     //mContext.startActivity(intent);
